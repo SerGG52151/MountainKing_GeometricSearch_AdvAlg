@@ -1,4 +1,5 @@
 from pointcloud_processing import CleanParams, clean_and_downsample, visualize_point_cloud, save_point_cloud
+from TIN_builder import build_TIN, save_TIN, visualize_TIN
 from pathlib import Path
 
 def run_default():
@@ -17,10 +18,25 @@ def run_default():
 	print(f'Cleaned point cloud points: {len(cleaned.points)}')
 	save_point_cloud(cleaned, 'cleaned_point_cloud.ply')
 	print('Saved cleaned_point_cloud.ply')
+ 
 	try:
 		visualize_point_cloud(cleaned, 'Cleaned Point Cloud')
 	except Exception as e:
 		print(f'Visualization failed (maybe headless env): {e}')
+  
+	print('Building TIN...')
+	V, F, Adjacency = build_TIN('cleaned_point_cloud.ply')
+ 
+	save_TIN(V, F, Adjacency)
+	print('Saved TIN data: TIN_vertices.npy, TIN_faces.npy, TIN_adjacency.npy')
+
+	print(f'TIN vertex count: {len(V)}')
+	print(f'TIN triangle count: {len(F)}')
+	for i, neighbors in enumerate(Adjacency): 
+		print(f'Face {i}: neighbors -> {neighbors}')
+
+	visualize_TIN(V, F)
+  
 
 if __name__ == '__main__':
 	run_default()
