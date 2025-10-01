@@ -1,0 +1,50 @@
+# Python caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+
+# Build / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Logs / temp
+*.log
+.tmp/
+.temp/
+.cache/
+.mypy_cache/
+.pytest_cache/
+
+# IDE/editor
+.vscode/
+.idea/
+*.code-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Generated / outputs
+cleaned_*.ply
+output/
+results/
+
+# Large point cloud formats (optional - comment out to track)
+*.las
+*.laz
+*.e57
+*.pcd
+# Keep original small sample PLY/XYZ/CSV if desired:
+# !point_cloud.ply
+# !point_cloud.csv
+
+# Optional science/data directories
+/data/
+/datasets/
