@@ -54,6 +54,9 @@ def run_default():
 	# 2. Definir un punto de consulta (x, y)
 	# Busca en el archivo cleaned_point_cloud.ply para encontrar un punto válido.
 	# Se utiliza un punto de ejemplo aquí.
+
+	print("Definiendo consulta en el punto (0.5, 0.4) con las funciones de tin_queries.py")
+	
 	query_point_xy = (0.5, 0.4) 
 
 	# 3. Realizar las consultas
